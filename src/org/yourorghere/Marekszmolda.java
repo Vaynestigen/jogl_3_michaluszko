@@ -103,43 +103,41 @@ System.exit(0);
  gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó³ osi Y
  //Tu piszemy kod tworz¹cy obiekty 3D
  gl.glBegin(GL.GL_QUADS);
-//œciana przednia
-gl.glColor3f(1.0f,0.0f,0.0f);
-gl.glVertex3f(-1.0f,-1.0f,1.0f);
-gl.glVertex3f(1.0f,-1.0f,1.0f);
-gl.glVertex3f(1.0f,1.0f,1.0f);
-gl.glVertex3f(-1.0f,1.0f,1.0f);
-//sciana tylnia
-gl.glColor3f(0.0f,1.0f,0.0f);
-gl.glVertex3f(-1.0f,1.0f,-1.0f);
-gl.glVertex3f(1.0f,1.0f,-1.0f);
-gl.glVertex3f(1.0f,-1.0f,-1.0f);
-gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-//œciana lewa
-gl.glColor3f(0.0f,0.0f,1.0f);
-gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-gl.glVertex3f(-1.0f,-1.0f,1.0f);
-gl.glVertex3f(-1.0f,1.0f,1.0f);
-gl.glVertex3f(-1.0f,1.0f,-1.0f);
-//œciana prawa
-gl.glColor3f(1.0f,1.0f,0.0f);
-gl.glVertex3f(1.0f,1.0f,-1.0f);
-gl.glVertex3f(1.0f,1.0f,1.0f);
-gl.glVertex3f(1.0f,-1.0f,1.0f);
-gl.glVertex3f(1.0f,-1.0f,-1.0f);
-//œciana dolna
-gl.glColor3f(1.0f,0.0f,1.0f);
-gl.glVertex3f(-1.0f,-1.0f,1.0f);
-gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-gl.glVertex3f(1.0f,-1.0f,-1.0f);
-gl.glVertex3f(1.0f,-1.0f,1.0f);
+//dolna
+gl.glColor3f(1.0f,1.0f,1.0f);
+ gl.glVertex3f(-1.0f,-1.0f,1.0f);
+ gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+ gl.glVertex3f(1.0f,-1.0f,-1.0f);
+ gl.glVertex3f(1.0f,-1.0f,1.0f);
+ gl.glEnd();
+//przednia
+gl.glBegin(GL.GL_TRIANGLES);
+gl.glColor3f(1.0f,1.0f,1.5f);
+gl.glVertex3f(-1.0f, -1.0f, 1.0f);
+gl.glVertex3f(1.0f,-1.0f, 1.0f);
+gl.glVertex3f( 0.0f,1.0f, 0.0f);
+//tylna
+gl.glBegin(GL.GL_TRIANGLES);
+gl.glColor3f(0.3f,1.5f,1.5f);
+gl.glVertex3f(1.0f, -1.0f, -1.0f);
+gl.glVertex3f(-1.0f,-1.0f, -1.0f);
+gl.glVertex3f( 0.0f,1.0f, 0.0f);
+//
+gl.glBegin(GL.GL_TRIANGLES);
+gl.glColor3f(0.8f,1.0f,1.5f);
+gl.glVertex3f(-1.0f, -1.0f, -1.0f);
+gl.glVertex3f(-1.0f,-1.0f, 1.0f);
+gl.glVertex3f( 0.0f,1.0f, 0.0f);
+//
 
- //gorna
-gl.glColor3f(1.5f,3.3f,1.0f);
-gl.glVertex3f(-1.0f,1.0f,1.0f);
-gl.glVertex3f(1.0f,1.0f,1.0f);
-gl.glVertex3f(1.0f,1.0f,-1.0f);
-gl.glVertex3f(-1.0f,1.0f,-1.0f);
+gl.glBegin(GL.GL_TRIANGLES);
+gl.glColor3f(0.2f,1.0f,0.0f);
+gl.glVertex3f(0.0f, 1.0f, 0.0f);
+gl.glVertex3f(1.0f,-1.0f, 1.0f);
+gl.glVertex3f(1.0f,-1.0f, -1.0f);
+//
+
+
 gl.glEnd();
 
  // Flush all drawing operations to the graphics card
