@@ -102,42 +102,36 @@ System.exit(0);
  gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f); //rotacja wokó³ osi X
  gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó³ osi Y
  //Tu piszemy kod tworz¹cy obiekty 3D
- gl.glBegin(GL.GL_QUADS);
-//dolna
-gl.glColor3f(1.0f,1.0f,1.0f);
- gl.glVertex3f(-1.0f,-1.0f,1.0f);
- gl.glVertex3f(-1.0f,-1.0f,-1.0f);
- gl.glVertex3f(1.0f,-1.0f,-1.0f);
- gl.glVertex3f(1.0f,-1.0f,1.0f);
- gl.glEnd();
-//przednia
-gl.glBegin(GL.GL_TRIANGLES);
-gl.glColor3f(1.0f,1.0f,1.5f);
-gl.glVertex3f(-1.0f, -1.0f, 1.0f);
-gl.glVertex3f(1.0f,-1.0f, 1.0f);
-gl.glVertex3f( 0.0f,1.0f, 0.0f);
-//tylna
-gl.glBegin(GL.GL_TRIANGLES);
-gl.glColor3f(0.3f,1.5f,1.5f);
-gl.glVertex3f(1.0f, -1.0f, -1.0f);
-gl.glVertex3f(-1.0f,-1.0f, -1.0f);
-gl.glVertex3f( 0.0f,1.0f, 0.0f);
-//
-gl.glBegin(GL.GL_TRIANGLES);
-gl.glColor3f(0.8f,1.0f,1.5f);
-gl.glVertex3f(-1.0f, -1.0f, -1.0f);
-gl.glVertex3f(-1.0f,-1.0f, 1.0f);
-gl.glVertex3f( 0.0f,1.0f, 0.0f);
-//
-
-gl.glBegin(GL.GL_TRIANGLES);
-gl.glColor3f(0.2f,1.0f,0.0f);
-gl.glVertex3f(0.0f, 1.0f, 0.0f);
-gl.glVertex3f(1.0f,-1.0f, 1.0f);
-gl.glVertex3f(1.0f,-1.0f, -1.0f);
-//
-
-
+ float x, y, kat;
+  
+gl.glBegin(GL.GL_TRIANGLE_FAN);
+gl.glColor3f(0.5f,0.0f,1.0f);
+gl.glVertex3f(0.0f, 0.0f, -2.0f); //?rodek
+for (kat = 0.0f; kat < (2.0f * Math.PI);
+kat += (Math.PI / 32.0f)) {
+x = 1.5f * (float) Math.sin(kat);
+y = 1.5f * (float) Math.cos(kat);
+gl.glVertex3f(x, y, -2.0f); //kolejne punkty
+}
+gl.glEnd();
+gl.glBegin(GL.GL_TRIANGLE_FAN);
+gl.glVertex3f(0.0f, 0.0f, 1.0f); //?rodek
+for (kat = (float)(2.0f * Math.PI) ; kat >0.0f ;
+kat -= (Math.PI / 32.0f)) {
+x = 1.5f * (float) Math.sin(kat);
+y = 1.5f * (float) Math.cos(kat);
+gl.glVertex3f(x, y, 1.0f); //kolejne punkty
+}
+gl.glEnd();
+gl.glBegin(GL.GL_QUAD_STRIP);
+gl.glColor3f(0.1f,0.0f,1.0f);
+for (kat = 0.0f; kat < (2.0f * Math.PI);
+kat += (Math.PI / 32.0f)) {
+x = 1.5f * (float) Math.sin(kat);
+y = 1.5f * (float) Math.cos(kat);
+ gl.glVertex3f(x, y, -2.0f); //kolejne punkty
+ gl.glVertex3f(x, y, 1.0f);
+}
 gl.glEnd();
 
  // Flush all drawing operations to the graphics card
