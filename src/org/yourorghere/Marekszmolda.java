@@ -313,13 +313,16 @@ public class Marekszmolda implements GLEventListener {
         gl.glEnable(GL.GL_LIGHT0); //uaktywnienie ?ród?a ?wiat?a nr. 0
         gl.glEnable(GL.GL_COLOR_MATERIAL);
    
-        gl.glTranslatef(0.0f, 80.0f, -5.0f);
+        gl.glTranslatef(0.0f, 95.0f, -5.0f);
 
                 gl.glTranslatef(x, 0.0f, z);
 
                 
         Rysuj(gl, t1, t2, t3);
-koparka.Rysuj(gl);
+        
+        gl.glTranslatef(0.0f, -96.5f, -0.0f);
+        gl.glScalef(1.5f, 1.5f, 1.5f);
+        koparka.Rysuj(gl);
         // drzewko(gl);
         //  for(int i=0; i<10 ;i++)
         //  {
@@ -551,7 +554,7 @@ z+=d*Math.cos(yrot*(3.14f/180.0f));
  {
 //szescian
 gl.glColor3f(1.0f,1.0f,1.0f);
-//za?adowanie tekstury wczytanej wcze?niej z pliku krajobraz.bmp
+
 gl.glBindTexture(GL.GL_TEXTURE_2D, t1.getTextureObject());
 gl.glBegin(GL.GL_QUADS);
 //?ciana przednia
@@ -580,15 +583,14 @@ gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,100.0f);
 gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(100.0f,100.0f,-100.0f);
 gl.glEnd();
 
-//?ciana dolna
-//za?adowanie tekstury wczytanej wcze?niej z pliku niebo.bmp
+//sciana dolna
  gl.glBindTexture(GL.GL_TEXTURE_2D, t2.getTextureObject());
  //ustawienia aby tekstura si? powiela?a
  gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_WRAP_S, GL.GL_REPEAT);
  gl.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_WRAP_T, GL.GL_REPEAT);
 gl.glBegin(GL.GL_QUADS);
 gl.glNormal3f(0.0f,1.0f,0.0f);
- //koordynaty ustawienia 16 x 16 kwadratów powielonej tekstury na ?cianie dolnej
+
 gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(100.0f,-100.0f,100.0f);
 gl.glTexCoord2f(0.0f, 16.0f);gl.glVertex3f(100.0f,-100.0f,-100.0f);
 gl.glTexCoord2f(16.0f, 16.0f);gl.glVertex3f(-100.0f,-100.0f,-100.0f);
@@ -596,7 +598,7 @@ gl.glTexCoord2f(16.0f, 0.0f);gl.glVertex3f(-100.0f,-100.0f,100.0f);
 gl.glEnd();
 
  //?ciana gorna
-//za?adowanie tekstury wczytanej wcze?niej z pliku trawa.bmp
+
 gl.glBindTexture(GL.GL_TEXTURE_2D, t3.getTextureObject());
 gl.glBegin(GL.GL_QUADS);
 gl.glNormal3f(0.0f,-1.0f,0.0f);
